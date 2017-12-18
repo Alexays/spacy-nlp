@@ -59,7 +59,7 @@ function ioClient() {
  */
 /* istanbul ignore next */
 function ioStart() {
-  portscanner.checkPortStatusAsync(process.env.IOPORT, '127.0.0.1')
+  return portscanner.checkPortStatusAsync(process.env.IOPORT, '127.0.0.1')
     .then((status) => {
       if (status === 'closed') {
         // no poly socketIO server exists at port yet, start new
@@ -71,8 +71,8 @@ function ioStart() {
       }
       return Promise.resolve();
     })
-    .then(ioClient);
-  return (global.ioPromise || Promise.resolve());
+    .then(ioClient)
+    .then(() => global.ioPromise || Promise.resolve());
 }
 
 /* istanbul ignore next */
