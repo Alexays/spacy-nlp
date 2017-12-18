@@ -1,0 +1,29 @@
+{
+  "globals": {
+    "_": false,
+    "assert": false,
+    "Boom": false,
+    "logger": false,
+    "config": false,
+    "utils": false,
+    "request": false
+  },
+  "parserOptions": {
+    "ecmaVersion": 8
+  },
+  "extends": [
+    "airbnb"
+  ],
+  "rules": {
+    "no-shadow": [
+      2,
+      {
+        "allow": [
+          "err"
+        ]
+      }
+    ],
+    "no-underscore-dangle": 0,
+    "no-param-reassign": 0
+  }
+}
